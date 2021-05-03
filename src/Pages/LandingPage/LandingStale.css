@@ -1,0 +1,82 @@
+.landing{
+  width: 86vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.title-bar{
+  display: flex;
+  justify-content: center;
+  
+  width: 90%;
+  max-width: 1440px;
+
+  padding-left: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+}
+.title-bar .title span span{
+  font-family: Quicksand;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #afafaf;
+}
+.title-bar .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-bar .title span{
+  font-family: Quicksand;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+
+  color: #000;
+}
+.title-bar .title a{
+  height: 95%;
+  color: #000;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  cursor: default;
+}
+
+.title-bar .title a svg{
+  cursor: pointer;
+}
+
+.task-area{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.create-task{
+  background: var(--color-primary-dark);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+
+  border: 0;
+
+  font-size: 28px;
+}
+
+
+@media (min-width: 465px){
+  .title-bar .title{
+    width: 90%;
+  }
+}

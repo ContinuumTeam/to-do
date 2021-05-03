@@ -1,0 +1,91 @@
+.task-box{
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  background: #fff;
+  
+  width: 300px;
+
+  flex-direction: column;
+
+  border: 2px solid #CCCCCC;
+  border-radius: 8px;
+  
+  margin-left: 15px;
+  margin-bottom: 12px;
+
+  padding: 15px;
+
+  cursor: default;
+}
+.task_modal{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100px;
+
+  padding: 0 auto;
+
+  margin: auto;
+  top: 30%;
+
+  
+}
+
+.modal_task_backdrop{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.253);
+  z-index: 100;
+}
+
+.task-box span{
+  font-family: Quicksand;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: var(--color-primary);
+}
+
+.task-box input{
+  border: none;
+}
+
+.task-box .task-date{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+
+  margin-top: 20px;
+}
+
+.task-box .task-date span{
+  font-family: Quicksand;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+  padding-left: 2rem;
+
+  color: var(--color-primary);
+}
+
+.task-box .task-date span:last-child{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task_button{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  border: none;
+}
