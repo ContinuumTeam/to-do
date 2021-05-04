@@ -62,14 +62,22 @@ function Landing() {
               <>
                 <motion.div className='create_task_backdrop' onClick={toggleOpen} />
                 <motion.div
+                  layout
                   className='create_task create_task_modal'
                   layoutId={idInput}
                   initial={{
-                    width: 400,
-                    height: 200,
+
+                    scale: 0
+                  }}
+                  animate={{
+
+                    scale: [0, 1]
+                  }}
+                  exit={{
+                    scale: 0
                   }}
                 >
-                  <textarea name="task_content" id="" />
+                  <textarea name="task_content" id="" placeholder='Crie uma tarefa' />
                 </motion.div>
               </>
             )
