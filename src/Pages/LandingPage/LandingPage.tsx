@@ -65,15 +65,11 @@ function Landing() {
                   className='create_task create_task_modal'
                   layoutId={idInput}
                   initial={{
-                    width: 300,
-                    height: 200,
-                  }}
-                  animate={{
-                    width: 300,
+                    width: 400,
                     height: 200,
                   }}
                 >
-                  <input type="text" name="create_task" id="create_task" />
+                  <textarea name="task_content" id="" />
                 </motion.div>
               </>
             )

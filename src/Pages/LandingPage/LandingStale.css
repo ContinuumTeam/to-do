@@ -54,7 +54,7 @@
 }
 
 .create_task{
-  width: 80%;
+  width: 300px;
 
   display: flex;
   flex-direction: column;
@@ -65,9 +65,15 @@
 }
 
 .create_task_modal{
-  
-  background-color: yellow;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 5px rgba(0,0,0,.3);
+}
 
+.create_task_modal input{
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .create_task input{
