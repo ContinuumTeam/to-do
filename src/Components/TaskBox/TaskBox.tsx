@@ -18,6 +18,8 @@ const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }
 
 
   function handleShowModal() {
+    console.log(showModal);
+
     setShowModal(true)
   }
 
@@ -59,7 +61,6 @@ const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }
                   width: 500,
                   height: 200,
                   scale: 1,
-                  zIndex: 100,
                 }}
                 exit={{
                   scale: 1

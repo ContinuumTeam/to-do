@@ -49,9 +49,55 @@
   padding-bottom: 1rem;
   cursor: default;
 }
-
 .title-bar .title a svg{
   cursor: pointer;
+}
+
+.create_task{
+  width: 80%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.create_task_modal{
+  
+  background-color: yellow;
+
+}
+
+.create_task input{
+  width: 300px;
+  max-width: 600px;
+  height: 40px;
+
+  padding-left: 1rem;
+
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+
+  font-weight: bold;
+  box-shadow: 0 4px 5px rgba(0,0,0,.3);
+  
+}
+
+.create_task_backdrop{
+  position: fixed;
+  width: 86vw;
+  height: 100vh;
+  
+  z-index: 100;
+}
+.create_task_modal{
+
+  width: 70%;
+  width: 100px;
+  border: 1px solid var(--color-border);
+  z-index: 100;
 }
 
 .task-area{

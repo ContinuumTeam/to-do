@@ -3,6 +3,7 @@ import Sidebar from '../../Components/Sidebar/Sidebar'
 import { GoPencil } from 'react-icons/go'
 import './LandingStale.css'
 import TaskBox from '../../Components/TaskBox/TaskBox'
+import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import api from '../../Services/api'
 
 interface Task {
@@ -16,6 +17,9 @@ interface Task {
 function Landing() {
 
   const [Task, setTask] = useState<Task[]>([])
+  const [selected, setSelected] = useState(false)
+
+  const idInput = 'box'
 
   useEffect(() => {
     api.get('/list').then((response) => {
@@ -25,6 +29,7 @@ function Landing() {
     })
   }, [])
 
+  const toggleOpen = () => setSelected(!selected)
 
 
   return (
@@ -38,15 +43,43 @@ function Landing() {
           <span>
             <span className="title_task">Task List</span>
             <br />
-            Work
+            Trabalho
           </span>
           <a href="asda"><GoPencil size={20} color='#000' /></a>
         </div>
       </div>
 
-      <form className="">
-        <input type='text' />
-      </form>
+      <AnimateSharedLayout>
+        <motion.div
+          className='create_task'
+          layoutId={idInput}
+        >
+          <input type="text" placeholder='Crie uma tarefa' onClick={toggleOpen} />
+        </motion.div>
+        <AnimatePresence>
+          {
+            selected && (
+              <>
+                <motion.div className='create_task_backdrop' onClick={toggleOpen} />
+                <motion.div
+                  className='create_task create_task_modal'
+                  layoutId={idInput}
+                  initial={{
+                    width: 300,
+                    height: 200,
+                  }}
+                  animate={{
+                    width: 300,
+                    height: 200,
+                  }}
+                >
+                  <input type="text" name="create_task" id="create_task" />
+                </motion.div>
+              </>
+            )
+          }
+        </AnimatePresence>
+      </AnimateSharedLayout>
 
       <div className="task-area">
         {

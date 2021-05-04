@@ -18,6 +18,8 @@
     --color-text-complement: #9C98A6;
     --color-text-base: #6A6180;
 
+    --color-border: #9C98A6;
+
     --color-line-in-white: #E6E6F0;
 
     --color-input-background: #F8F8FC;
@@ -34,6 +36,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body{
