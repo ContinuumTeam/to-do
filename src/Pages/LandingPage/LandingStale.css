@@ -1,10 +1,14 @@
 .landing{
-  width: 86vw;
+  width: 85vw;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  margin-left: 70px;
+
 }
 
 .title-bar{
@@ -54,33 +58,43 @@
 
 .create_task{
   width: 70%;
+  max-width: 600px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  padding-bottom: 2rem;
-
+  
   margin-left: 15px;
-}
+  margin-bottom: 15px;
+  padding: 8px;
 
-.create_task_modal{
-  width: 80% !important;
-  max-width: 600px;
-  position: fixed;
-  background-color: white;
   border-radius: 8px;
   border: 1px solid var(--color-border);
+  box-shadow: 0 4px 5px rgba(0,0,0,.3);
+
+  z-index: 100;
+}
+
+/* .create_task_modal{
+  width: 70% !important;
+  max-width: 600px;
+  height: 100px;
+
+  position: fixed;
+
+  background-color: white;
+
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+
   box-shadow: 0 4px 5px rgba(0,0,0,.3);
 
   display: flex;
   justify-content: flex-start;
 
-  top: 20%;
-}
+  top: 175px;
+} */
 
-.create_task_modal textarea{
+/* .create_task_modal textarea{
   width: 100%;
   height: 80px;
 
@@ -88,60 +102,40 @@
   resize: none;
 
   font-weight: bold;
+
   padding: 1.2rem 1.6rem;
 
-}
+} */
 
 .create_task input{
   width: 100%;
   max-width: 600px;
-  height: 40px;
+  height: 30px;
 
   padding-left: 1rem;
 
+  border: none;
   border-radius: 8px;
-  border: 1px solid var(--color-border);
 
   font-weight: bold;
-  box-shadow: 0 4px 5px rgba(0,0,0,.3);
   
+  outline: none;
 }
 
 .create_task_backdrop{
   position: fixed;
   width: 86vw;
   height: 100vh;
-  
-  z-index: 100;
-}
-.create_task_modal{
-
-  width: 70%;
-  width: 100px;
-  border: 1px solid var(--color-border);
-  z-index: 100;
+  background: none;
+  z-index: 0;
 }
 
 .task-area{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin-top: 15px;
+  height: 100%;
+  column-count: 4;
+  column-gap: 5px;
 }
-
-.create-task{
-  background: var(--color-primary-dark);
-  color: var(--color-primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-decoration: none;
-
-  border: 0;
-
-  font-size: 28px;
-}
-
 
 @media (min-width: 465px){
   .title-bar .title{

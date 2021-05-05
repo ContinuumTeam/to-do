@@ -29,11 +29,17 @@ function Landing() {
     })
   }, [])
 
-  const toggleOpen = () => setSelected(!selected)
+  const toggleOpen = () => {
+    setSelected(true)
+    console.log(selected);
 
+  }
+  const toggleClose = () => {
+    setSelected(false)
+  }
 
   return (
-    <div className="landing">
+    <div className="landing" >
       <Sidebar />
 
       <div className="title-bar">
@@ -49,40 +55,29 @@ function Landing() {
         </div>
       </div>
 
+
       <AnimateSharedLayout>
-        <motion.div
-          className='create_task'
-          layoutId={idInput}
-        >
-          <input type="text" placeholder='Crie uma tarefa' onClick={toggleOpen} />
-        </motion.div>
-        <AnimatePresence>
-          {
-            selected && (
-              <>
-                <motion.div className='create_task_backdrop' onClick={toggleOpen} />
-                <motion.div
-                  layout
-                  className='create_task create_task_modal'
-                  layoutId={idInput}
-                  initial={{
-
-                    scale: 0
-                  }}
-                  animate={{
-
-                    scale: [0, 1]
-                  }}
-                  exit={{
-                    scale: 0
-                  }}
-                >
-                  <textarea name="task_content" id="" placeholder='Crie uma tarefa' />
-                </motion.div>
-              </>
-            )
-          }
-        </AnimatePresence>
+        {
+          selected && (
+            <>
+              <motion.div className="create_task_backdrop" onClick={toggleClose} />
+            </>
+          )
+        }
+        <form action="" className='create_task'>
+          <motion.div>
+            <AnimatePresence>
+              {
+                selected && (
+                  <>
+                    <input type="text" placeholder='Titulo' />
+                  </>
+                )
+              }
+            </AnimatePresence>
+            <input type="text" placeholder='Crie uma tarefa' onClick={toggleOpen} />
+          </motion.div>
+        </form>
       </AnimateSharedLayout>
 
       <div className="task-area">

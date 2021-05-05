@@ -12,7 +12,7 @@ interface TaskProps {
 
 const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }: TaskProps) => {
   const [showModal, setShowModal] = useState(false)
-  const [selectedId, setSelectedId] = useState<string>()
+  const [selectedId, setSelectedId] = useState(false)
   //const [isChecked, setIsChecked] = useState(false)
 
 
@@ -31,9 +31,11 @@ const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }
         layout
         className='task-box'
         layoutId={id}
-        onClick={() => setSelectedId(id)}
+        onClick={() => setSelectedId(true)}
       >
-        <span className="task-name">{task_content}</span>
+        <span className="task-name">
+          {task_content}
+        </span>
         <motion.div className="task-date">
           <motion.span className="date">{task_data}</motion.span>
           <motion.span className="hour">{task_hour}</motion.span>
@@ -46,21 +48,21 @@ const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }
             <>
               <motion.div
                 className='modal_task_backdrop'
-                onClick={() => setSelectedId('null')}
+                onClick={() => setSelectedId(false)}
               />
               <motion.div
                 layout
                 className='task-box task_modal'
-                layoutId={selectedId}
+                layoutId={id}
                 onClick={handleShowModal}
                 initial={{
                   scale: 1,
-                  zIndex: 0,
                 }}
                 animate={{
                   width: 500,
                   height: 200,
                   scale: 1,
+                  zIndex: 100
                 }}
                 exit={{
                   scale: 1
