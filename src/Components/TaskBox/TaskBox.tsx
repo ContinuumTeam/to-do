@@ -5,12 +5,13 @@ import "./taskBox.css"
 
 interface TaskProps {
   id: string;
+  task_title: string;
   task_content: string;
   task_data: string;
   task_hour: string;
 }
 
-const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }: TaskProps) => {
+const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content, task_title }: TaskProps) => {
   const [showModal, setShowModal] = useState(false)
   const [selectedId, setSelectedId] = useState(false)
   //const [isChecked, setIsChecked] = useState(false)
@@ -33,9 +34,10 @@ const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content }
         layoutId={id}
         onClick={() => setSelectedId(true)}
       >
-        <span className="task-name">
-          {task_content}
-        </span>
+        <div className="task-name">
+          <span>{task_title}</span>
+          <span>{task_content}</span>
+        </div>
         <motion.div className="task-date">
           <motion.span className="date">{task_data}</motion.span>
           <motion.span className="hour">{task_hour}</motion.span>

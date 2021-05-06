@@ -62,6 +62,15 @@
   color: var(--color-primary);
 }
 
+.task-name{
+  display: flex;
+  flex-direction: column;
+}
+
+.task-name span:first-child{
+  margin-bottom: 8px;
+}
+
 .task-box input{
   border: none;
 }

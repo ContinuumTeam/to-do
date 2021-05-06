@@ -1,3 +1,27 @@
+::-webkit-calendar-picker-indicator,
+::-webkit-inner-spin-button{
+  cursor: pointer;
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+input[type="date"]:focus:before {
+  content: "";
+}
+
+input[type="time"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+input[type="time"]:focus:before,
+input[type="time"]:valid:before {
+  content: "";
+}
+
 .landing{
   width: 85vw;
   height: 100vh;
@@ -120,6 +144,45 @@
   font-weight: bold;
   
   outline: none;
+}
+
+.create_task input[type=date]{
+  max-width: 200px;
+  background: none;
+  color: var(--color-text-base);
+  border: 2px solid var(--color-border);
+  margin-top: 6px;
+  margin-right: 8px;
+}
+
+.create_task input[type=time]{
+  margin-top: 6px;
+  width: 100%;
+  max-width: 170px;
+  background: none;
+  color: var(--color-text-base);
+  border: 2px solid var(--color-border);
+}
+
+.task_buttons{
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+.task_buttons button{
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+.task_buttons .task_created{
+  margin-right: 8px;
+  background: var(--color-green);
+}
+.task_buttons .close_button{
+  background: #FF6347;
 }
 
 .create_task_backdrop{
