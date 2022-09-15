@@ -1,5 +1,6 @@
 .task-box{
   position: relative;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -11,7 +12,6 @@
   border: 2px solid #CCCCCC;
   border-radius: 8px;
   
-  margin-left: 15px;
   margin-bottom: 12px;
 
   padding: 15px;
@@ -107,4 +107,10 @@
   height: 25px;
   border-radius: 50px;
   border: none;
+}
+
+@media (min-width: 465px){
+  .task-box{
+    max-width: 400px;
+  }
 }

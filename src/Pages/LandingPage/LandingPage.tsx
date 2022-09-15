@@ -48,8 +48,6 @@ function Landing() {
       task_remember
     })
 
-
-
     console.log({
       'task_title': task_title,
       'task_content': task_content,
@@ -80,118 +78,181 @@ function Landing() {
   }
   //#endregion
 
+  // {
+  //   Task.map(tasks => {
+  //     return <TaskBox
+  //       key={tasks.id}
+  //       task_title={tasks.task_title}
+  //       id={tasks.id}
+  //       task_content={tasks.task_content}
+  //       task_data={tasks.task_data}
+  //       task_hour={tasks.task_hour}
+  //     />
+  //   })
+  // }
+
   return (
-
     <div className="landing" >
+      <div className="wrapper">
+        {/* titulo da pagina */}
+        <div className="title-bar">
+          <div className="title">
+            <span>
+              <span className="title_task">Task List</span>
+              <br />
+              Trabalho
+            </span>
+            <a href="asda"><GoPencil size={20} color='#000' /></a>
+          </div>
+        </div>
 
-      {/* barra lateral */}
-      <Sidebar />
+        {/* animação para a criacao das tarefas */}
+        <AnimateSharedLayout>
 
-      {/* titulo da pagina */}
-      <div className="title-bar">
+          {
+            selected && (
+              <>
+                <motion.div className="create_task_backdrop" onClick={toggleClose} />
+              </>
+            )
+          }
 
-        <div className="title">
+          <form action="" className='create_task' onSubmit={handleSubmit}>
 
-          <span>
-            <span className="title_task">Task List</span>
-            <br />
-            Trabalho
-          </span>
-          <a href="asda"><GoPencil size={20} color='#000' /></a>
+            <motion.div>
+
+              <AnimatePresence>
+                {
+                  selected && (
+                    <>
+                      <input
+                        type="text" placeholder='Titulo'
+                        value={task_title}
+                        onChange={event => settask_title(event.target.value)}
+                      />
+                    </>
+                  )
+                }
+              </AnimatePresence>
+
+              <input
+                type="text"
+                placeholder='Adicione uma nova tarefa'
+                onClick={toggleOpen}
+                value={task_content}
+                onChange={event => settask_content(event.target.value)}
+              />
+
+              <AnimatePresence>
+                {
+                  selected && (
+                    <>
+
+                      <div className="createTaskInputArea">
+                        <input
+                        id="task_date" type="date"
+                        placeholder='data'
+                        value={task_data}
+                        onChange={event => settask_data(event.target.value)}
+                        />
+                        <input
+                          placeholder='Hora'
+                          type="time"
+                          value={task_hour}
+                          onChange={event => settask_hour(event.target.value)}
+                        />
+                      </div>
+
+                      <motion.div className='task_buttons'>
+
+                        <button
+                          type="submit"
+                          className='task_created'
+                        >Criar</button>
+
+                        <button className='close_button' onClick={toggleClose}>Fechar</button>
+                      </motion.div>
+
+                    </>
+                  )
+                }
+              </AnimatePresence>
+
+            </motion.div>
+          </form>
+
+        </AnimateSharedLayout>
+
+        {/* Area aonde sao mostradas as tasks */}
+        <div className="task-area">
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
+          <TaskBox
+            key='teste'
+            task_title='teste title'
+            id='1'
+            task_content='teste content'
+            task_data="15/09/2022"
+            task_hour="21:57"
+          />
         </div>
       </div>
-
-      {/* animação para a criacao das tarefas */}
-      <AnimateSharedLayout>
-
-        {
-          selected && (
-            <>
-              <motion.div className="create_task_backdrop" onClick={toggleClose} />
-            </>
-          )
-        }
-
-        <form action="" className='create_task' onSubmit={handleSubmit}>
-
-          <motion.div>
-
-            <AnimatePresence>
-              {
-                selected && (
-                  <>
-                    <input
-                      type="text" placeholder='Titulo'
-                      value={task_title}
-                      onChange={event => settask_title(event.target.value)}
-                    />
-                  </>
-                )
-              }
-            </AnimatePresence>
-
-            <input
-              type="text"
-              placeholder='Crie uma tarefa'
-              onClick={toggleOpen}
-              value={task_content}
-              onChange={event => settask_content(event.target.value)}
-            />
-
-            <AnimatePresence>
-              {
-                selected && (
-                  <>
-
-                    <input
-                      id="task_date" type="date"
-                      placeholder='data'
-                      value={task_data}
-                      onChange={event => settask_data(event.target.value)}
-                    />
-                    <input
-                      placeholder='Hora'
-                      type="time"
-                      value={task_hour}
-                      onChange={event => settask_hour(event.target.value)}
-                    />
-
-                    <motion.div className='task_buttons'>
-
-                      <button
-                        type="submit"
-                        className='task_created'
-                      >Criar</button>
-
-                      <button className='close_button' onClick={toggleClose}>Fechar</button>
-                    </motion.div>
-
-                  </>
-                )
-              }
-            </AnimatePresence>
-
-          </motion.div>
-        </form>
-
-      </AnimateSharedLayout>
-
-      {/* Area aonde sao mostradas as tasks */}
-      <div className="task-area">
-        {
-          Task.map(tasks => {
-            return <TaskBox
-              key={tasks.id}
-              task_title={tasks.task_title}
-              id={tasks.id}
-              task_content={tasks.task_content}
-              task_data={tasks.task_data}
-              task_hour={tasks.task_hour}
-            />
-          })
-        }
-      </div>
-
+      {/* barra lateral */}
+      <Sidebar />
     </div>
 
   )
