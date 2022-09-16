@@ -14,29 +14,34 @@ interface TaskProps {
 const TaskBox: React.FC<TaskProps> = ({ id, task_data, task_hour, task_content, task_title }: TaskProps) => {
   const [showModal, setShowModal] = useState(false)
   const [selectedId, setSelectedId] = useState(false)
-  //const [isChecked, setIsChecked] = useState(false)
-
-
+  const [isChecked, setIsChecked] = useState(false)
 
   function handleShowModal() {
-    console.log(showModal);
-
     setShowModal(true)
   }
+  function handleChange () {
+    setIsChecked(current => !current);
+  };
 
   return (
     <AnimateSharedLayout type="crossfade">
-
       <motion.div
-        style={{ background: '#fff' }}
         layout
-        className='task-box'
+        className={isChecked ? 'task-box task-checked': ' task-box'}
         layoutId={id}
-        onClick={() => setSelectedId(true)}
+        // onClick={() => setSelectedId(true)}
       >
-        <div className="task-name">
-          <span>{task_title}</span>
-          <span>{task_content}</span>
+        <div className="task-box-header">
+          <div className="task-name">
+            <span>{task_title}</span>
+            <span>{task_content}</span>
+          </div>
+          <input 
+            type="checkbox" 
+            name="completedTask"
+            checked={isChecked}
+            onChange={handleChange}
+          />
         </div>
         <motion.div className="task-date">
           <motion.span className="date">{task_data}</motion.span>

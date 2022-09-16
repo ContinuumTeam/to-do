@@ -35,8 +35,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-
-  
 }
 
 .modal_task_backdrop{
@@ -55,7 +53,6 @@
 
 .task-box span{
   font-family: Quicksand;
-  font-weight: bold;
   font-size: 16px;
   line-height: 20px;
 
@@ -69,6 +66,7 @@
 
 .task-name span:first-child{
   margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .task-box input{
@@ -89,14 +87,34 @@
   font-size: 12px;
   line-height: 15px;
   /* identical to box height */
-  padding-left: 2rem;
-
-  color: var(--color-primary);
+  color: var(--color-text-complement);
 }
 
 .task-box .task-date span:last-child{
   display: flex;
   justify-content: flex-end;
+}
+.task-checked{
+  background: var(--color-primary);
+}
+
+.task-checked span{
+  color: #FFF;
+  text-decoration: line-through;
+}
+.task-checked .task-date span{
+  font-family: Quicksand;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+  color: #C0C0C0;
+}
+
+.task-box .task-box-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .task_button{
@@ -107,10 +125,4 @@
   height: 25px;
   border-radius: 50px;
   border: none;
-}
-
-@media (min-width: 465px){
-  .task-box{
-    max-width: 400px;
-  }
 }
