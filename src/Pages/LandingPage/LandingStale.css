@@ -35,8 +35,20 @@ input[type="time"]:valid:before {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  gap: 2rem;
   
   margin: 0 2rem;
+}
+
+.task-header{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2rem;
 }
 
 .title-bar{
@@ -45,10 +57,6 @@ input[type="time"]:valid:before {
   
   width: 100%;
   max-width: 1440px;
-
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
 }
 .title-bar .title span span{
   font-family: Quicksand;
@@ -231,7 +239,7 @@ input[type="time"]:valid:before {
   }
   .task-area{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
     grid-auto-rows: 14rem;
     gap: 8px;
   }
